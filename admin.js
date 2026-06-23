@@ -8,12 +8,13 @@ let db = null;
 let currentAdmin = null;
 
 try {
-    if (typeof supabase !== 'undefined' &&
-        SUPABASE_CONFIG.URL !== 'YOUR_SUPABASE_URL' &&
-        SUPABASE_CONFIG.ANON_KEY !== 'YOUR_SUPABASE_ANON_KEY') {
+    if (typeof supabase !== 'undefined' && 
+        typeof SUPABASE_CONFIG !== 'undefined' &&
+        SUPABASE_CONFIG.URL !== 'https://tawpkhxjnkjedkudapjw.supabase.co' && 
+        SUPABASE_CONFIG.ANON_KEY !== 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRhd3BraHhqbmtqZWRrdWRhcGp3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIxOTE2MDEsImV4cCI6MjA5Nzc2NzYwMX0.hLhPcBMr13IhWd-ZkhWsiW8sbS40t2aVnRJXXhLgDKY') {
         db = supabase.createClient(SUPABASE_CONFIG.URL, SUPABASE_CONFIG.ANON_KEY);
         console.log('Admin: Supabase connected.');
-    } else {
+    } else{
         console.warn('Admin: Running in MOCK mode. Set config.js keys to connect live data.');
     }
 } catch (e) {
