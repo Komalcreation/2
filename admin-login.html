@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ਸਟਾਫ਼ ਲੌਗਇਨ – Komal Creations</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    body { display: flex; align-items: center; justify-content: center; min-height: 100vh; background: var(--clr-cream-dk); }
+    .login-box { background: var(--clr-white); border-radius: var(--radius-lg); padding: var(--sp-10); box-shadow: var(--shadow-lg); max-width: 420px; width: 100%; text-align: center; }
+    .login-box .logo-mark { margin: 0 auto var(--sp-5); width: 56px; height: 56px; font-size: var(--text-2xl); }
+    .login-box h1 { font-size: var(--text-xl); margin-bottom: var(--sp-2); }
+    .login-box p { color: var(--clr-muted); font-size: var(--text-sm); margin-bottom: var(--sp-8); }
+    .login-box .form-group { text-align: left; }
+    .login-note { font-size: var(--text-xs); color: var(--clr-muted); margin-top: var(--sp-5); }
+    .back-link { display: inline-block; margin-top: var(--sp-5); font-size: var(--text-sm); color: var(--clr-muted); }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <div class="logo-mark">KC</div>
+    <h1>ਸਟਾਫ਼ ਲੌਗਇਨ</h1>
+    <p>Staff &amp; Admin Portal — Komal Creations</p>
+
+    <div id="loginMsg" class="form-msg" hidden></div>
+
+    <div class="form-group">
+      <label for="adminEmail">ਈਮੇਲ / Email</label>
+      <input type="email" id="adminEmail" placeholder="staff@example.com" autocomplete="email" />
+    </div>
+    <div class="form-group" style="margin-top:1rem">
+      <label for="adminPass">ਪਾਸਵਰਡ / Password</label>
+      <input type="password" id="adminPass" placeholder="••••••••" autocomplete="current-password" />
+    </div>
+
+    <button type="button" id="loginBtn" class="btn btn-primary full-width" style="margin-top:1.5rem">
+      ਲੌਗਇਨ ਕਰੋ / Login
+    </button>
+
+    <p class="login-note">ਸਿਰਫ਼ ਅਧਿਕਾਰਤ ਸਟਾਫ਼ ਲਈ। ਪਹੁੰਚ Supabase Auth ਦੁਆਰਾ ਕੰਟਰੋਲ ਕੀਤੀ ਜਾਂਦੀ ਹੈ।</p>
+    <a href="index.html" class="back-link">← ਮੁੱਖ ਸਾਈਟ ਤੇ ਵਾਪਸ ਜਾਓ</a>
+  </div>
+
+  <script type="module">
+    import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+
+    // ⚠️  Replace with your real values
+    const SUPABASE_URL      = "https://YOUR_PROJECT_ID.supabase.co";
+    const SUPABASE_ANON_KEY = "YOUR_ANON_KEY_HERE";
+
+    const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    const loginBtn  = document.getElementById("loginBtn");
+    const msgEl     = document.getElementById("loginMsg");
+
+    function showMsg(text, type = "error") {
+      msgEl.textContent = text;
+      msgEl.className = `form-msg ${type}`;
+      msgEl.hidden = false;
+    }
+
+    loginBtn.addEventListener("click", async () => {
+      const email    = document.getElementById("adminEmail").value.trim();
+      const password = document.getElementById("adminPass").value;
+
+      if (!email || !password) {
+        showMsg("ਕਿਰਪਾ ਈਮੇਲ ਅਤੇ ਪਾਸਵਰਡ ਦਰਜ ਕਰੋ।", "error");
+        return;
+      }
+
+      loginBtn.disabled = true;
+      loginBtn.textContent = "ਲੌਗਇਨ ਹੋ ਰਿਹਾ ਹੈ…";
+
+      const { error } = await supabase.auth.signInWithPassword({ email, password });
+
+      if (error) {
+        showMsg("❌ ਲੌਗਇਨ ਅਸਫਲ: " + error.message, "error");
+        loginBtn.disabled = false;
+        loginBtn.textContent = "ਲੌਗਇਨ ਕਰੋ / Login";
+      } else {
+        showMsg("✅ ਲੌਗਇਨ ਸਫਲ! ਰੀਡਾਇਰੈਕਟ ਹੋ ਰਿਹਾ ਹੈ…", "success");
+        setTimeout(() => { window.location.href = "admin.html"; }, 1200);
+      }
+    });
+  </script>
+</body>
+</html>
