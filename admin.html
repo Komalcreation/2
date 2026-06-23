@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Komal Creations & Training Center</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- ADMIN LOGIN SCREEN                                           -->
+<!-- ============================================================ -->
+<div id="admin-login-screen">
+    <div class="login-card">
+        <div class="logo-area">
+            <div class="logo-mark">K</div>
+            <h2>Admin Portal</h2>
+            <p>Komal Creations & Training Center</p>
+        </div>
+
+        <!-- Tab toggles -->
+        <div style="display:flex; border-bottom:2px solid rgba(255,255,255,0.06); margin-bottom:1.5rem;">
+            <button id="tab-login-admin" onclick="switchAdminTab('login')" style="flex:1; padding:0.7rem; background:none; border:none; font-family:'Outfit',sans-serif; font-size:0.95rem; font-weight:600; cursor:pointer; color:var(--accent-gold); border-bottom:2px solid var(--accent-gold); transition:all 0.3s;">Log In</button>
+            <button id="tab-create-admin" onclick="switchAdminTab('create')" style="flex:1; padding:0.7rem; background:none; border:none; font-family:'Outfit',sans-serif; font-size:0.95rem; font-weight:600; cursor:pointer; color:var(--text-secondary); border-bottom:2px solid transparent; transition:all 0.3s;">Create Admin</button>
+        </div>
+
+        <div id="login-status" class="login-status"></div>
+
+        <!-- LOGIN FORM -->
+        <form id="admin-login-form" style="display:block;">
+            <div class="admin-form">
+                <div class="form-group">
+                    <label for="admin-login-email">Admin Email</label>
+                    <input type="email" id="admin-login-email" placeholder="admin@komalcreations.com" required autocomplete="email">
+                </div>
+                <div class="form-group">
+                    <label for="admin-login-password">Password</label>
+                    <input type="password" id="admin-login-password" placeholder="••••••••" required autocomplete="current-password">
+                </div>
+                <button type="submit" class="btn-primary-admin" style="margin-top:0.5rem;">
+                    <i class="fas fa-sign-in-alt"></i> Access Admin Panel
+                </button>
+            </div>
+        </form>
+
+        <!-- CREATE ADMIN FORM -->
+        <form id="admin-create-form" style="display:none;" onsubmit="createAdminAccount(event)">
+            <div class="admin-form">
+                <div style="background:rgba(197,160,89,0.08); border:1px solid rgba(197,160,89,0.2); border-radius:8px; padding:0.8rem 1rem; margin-bottom:1rem; font-size:0.82rem; color:var(--accent-gold); line-height:1.5;">
+                    <i class="fas fa-info-circle"></i> This will create a new admin account in your Supabase project. Use this only once to set up your admin login.
+                </div>
+                <div class="form-group">
+                    <label for="new-admin-email">New Admin Email</label>
+                    <input type="email" id="new-admin-email" placeholder="admin@komalcreations.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="new-admin-password">Create Password (min 6 chars)</label>
+                    <input type="password" id="new-admin-password" placeholder="Create a strong password" required minlength="6">
+                </div>
+                <div class="form-group">
+                    <label for="new-admin-confirm">Confirm Password</label>
+                    <input type="password" id="new-admin-confirm" placeholder="Re-enter your password" required>
+                </div>
+                <div id="create-status" class="login-status"></div>
+                <button type="submit" class="btn-primary-admin" style="margin-top:0.5rem;">
+                    <i class="fas fa-user-shield"></i> Create Admin Account
+                </button>
+            </div>
+        </form>
+
+        <p style="text-align:center; font-size:0.78rem; color:var(--text-secondary); margin-top:1.5rem;">
+            <i class="fas fa-lock"></i> Secured admin access only. <a href="index.html" style="color:var(--accent-gold);">← Back to Website</a>
+        </p>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- ADMIN APP (hidden until logged in)                           -->
+<!-- ============================================================ -->
+<div id="admin-app" class="admin-layout" style="display:none;">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <div class="logo-mark">K</div>
+            <div class="logo-text">
+                Komal Creations
+                <small>Admin Dashboard</small>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <p class="nav-label">Main</p>
+            <button class="nav-item active" data-page="overview">
+                <i class="fas fa-chart-pie"></i> Overview
+            </button>
+            <button class="nav-item" data-page="students">
+                <i class="fas fa-user-graduate"></i> Student Enrollments
+            </button>
+            <button class="nav-item" data-page="inquiries">
+                <i class="fas fa-inbox"></i> Lead Inquiries
+            </button>
+            <button class="nav-item" data-page="certificates">
+                <i class="fas fa-certificate"></i> Certificates Ledger
+            </button>
+
+            <p class="nav-label" style="margin-top: 1.5rem;">Quick Links</p>
+            <button class="nav-item" onclick="window.open('index.html','_blank')">
+                <i class="fas fa-external-link-alt"></i> View Website
+            </button>
+        </nav>
+
+        <div class="sidebar-footer">
+            <strong id="admin-email-display">admin@komalcreations.com</strong>
+            <span>Administrator Access</span>
+            <button class="btn-logout-sidebar" id="btn-sidebar-logout">
+                <i class="fas fa-sign-out-alt"></i> Log Out
+            </button>
+        </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+        <div class="topbar">
+            <h1 id="topbar-title">Dashboard Overview</h1>
+            <div class="topbar-right">
+                <span class="topbar-badge"><i class="fas fa-shield-alt"></i> Admin Mode</span>
+                <button class="btn-refresh" id="btn-refresh-data">
+                    <i class="fas fa-sync-alt"></i> Refresh
+                </button>
+                <a href="index.html" class="btn-refresh"><i class="fas fa-arrow-left"></i> Website</a>
+            </div>
+        </div>
+
+        <!-- PAGE CONTENT -->
+        <div class="page-content">
+
+            <!-- ==================== OVERVIEW PAGE ==================== -->
+            <div class="page active" id="page-overview">
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-users stat-icon gold"></i>
+                        <div>
+                            <div class="stat-value" id="stat-total">0</div>
+                            <div class="stat-label">Total Students</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-check-circle stat-icon green"></i>
+                        <div>
+                            <div class="stat-value" id="stat-verified">0</div>
+                            <div class="stat-label">Email Verified</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-clock stat-icon warning"></i>
+                        <div>
+                            <div class="stat-value" id="stat-pending">0</div>
+                            <div class="stat-label">Verification Pending</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-rupee-sign stat-icon green"></i>
+                        <div>
+                            <div class="stat-value" id="stat-fees-paid">0</div>
+                            <div class="stat-label">Fees Paid</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-inbox stat-icon blue"></i>
+                        <div>
+                            <div class="stat-value" id="stat-inquiries">0</div>
+                            <div class="stat-label">Pending Inquiries</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-wallet stat-icon gold"></i>
+                        <div>
+                            <div class="stat-value" id="stat-revenue" style="font-size:1.5rem;">₹0</div>
+                            <div class="stat-label">Total Revenue Collected</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick preview of latest students -->
+                <div class="section-header-row">
+                    <h2>Latest Enrollments</h2>
+                    <button class="btn-refresh" onclick="document.querySelector('[data-page=students]').click()">
+                        View All <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                <div class="table-wrapper">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Student Name</th>
+                                <th>Email</th>
+                                <th>Course</th>
+                                <th>Email Status</th>
+                                <th>Fees</th>
+                                <th>Enrolled On</th>
+                            </tr>
+                        </thead>
+                        <tbody id="overview-recent-tbody">
+                            <tr class="loading-row"><td colspan="6"><div class="spinner"></div></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div><!-- /overview -->
+
+            <!-- ==================== STUDENTS PAGE ==================== -->
+            <div class="page" id="page-students">
+
+                <div class="section-header-row">
+                    <h2>All Student Enrollments</h2>
+                </div>
+
+                <div class="filter-bar">
+                    <input type="text" id="search-student" placeholder="🔍 Search by name, email, or phone...">
+                    <select id="filter-course">
+                        <option value="">All Courses</option>
+                        <option value="Boutique Tailoring & Stitching Course">Boutique Tailoring</option>
+                        <option value="Advanced Fashion Designing Course">Advanced Fashion Designing</option>
+                        <option value="Hand Embroidery & Zardozi Course">Hand Embroidery & Zardozi</option>
+                    </select>
+                    <select id="filter-fees">
+                        <option value="">All Fee Status</option>
+                        <option value="paid">Fees Paid</option>
+                        <option value="unpaid">Fees Unpaid</option>
+                    </select>
+                    <select id="filter-email">
+                        <option value="">All Email Status</option>
+                        <option value="verified">Email Verified</option>
+                        <option value="pending">Verification Pending</option>
+                    </select>
+                </div>
+
+                <div class="table-wrapper">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Student</th>
+                                <th>Contact</th>
+                                <th>Course</th>
+                                <th>Email Status</th>
+                                <th>Fees</th>
+                                <th>Enrolled On</th>
+                                <th>Notes</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="student-tbody">
+                            <tr class="loading-row"><td colspan="8"><div class="spinner"></div></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div><!-- /students -->
+
+            <!-- ==================== INQUIRIES PAGE ==================== -->
+            <div class="page" id="page-inquiries">
+
+                <div class="section-header-row">
+                    <h2>Lead Inquiries</h2>
+                </div>
+
+                <div class="filter-bar">
+                    <input type="text" id="search-inquiry" placeholder="🔍 Search by name or phone...">
+                    <select id="filter-inq-status">
+                        <option value="">All Statuses</option>
+                        <option value="new">New</option>
+                        <option value="contacted">Contacted</option>
+                        <option value="enrolled">Enrolled</option>
+                        <option value="cancelled">Cancelled</option>
+                    </select>
+                </div>
+
+                <div class="table-wrapper">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Phone</th>
+                                <th>Age</th>
+                                <th>Course Interested</th>
+                                <th>Status</th>
+                                <th>Received / Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="inquiry-tbody">
+                            <tr class="loading-row"><td colspan="6"><div class="spinner"></div></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div><!-- /inquiries -->
+
+            <!-- ==================== CERTIFICATES PAGE ==================== -->
+            <div class="page" id="page-certificates">
+                <div class="section-header-row">
+                    <h2>Certificates Ledger</h2>
+                </div>
+                <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-md); padding:2rem; text-align:center; color:var(--text-secondary);">
+                    <i class="fas fa-certificate" style="font-size:3rem; color:var(--accent-gold); margin-bottom:1rem; display:block;"></i>
+                    <p>Certificate management is handled directly via the <strong style="color:var(--text-primary);">Supabase Table Editor</strong> for security. Use the SQL Editor or Table Editor in your Supabase Dashboard to add/edit certificate records.</p>
+                    <a href="https://app.supabase.com" target="_blank" class="btn-primary-admin" style="margin-top:1.5rem; max-width:240px; display:inline-flex;">
+                        <i class="fas fa-external-link-alt"></i> Open Supabase Dashboard
+                    </a>
+                </div>
+            </div><!-- /certificates -->
+
+        </div><!-- /page-content -->
+    </main>
+</div><!-- /admin-app -->
+
+<!-- ============================================================ -->
+<!-- EDIT STUDENT MODAL                                           -->
+<!-- ============================================================ -->
+<div class="admin-modal-overlay" id="edit-modal-overlay">
+    <div class="admin-modal">
+        <div class="modal-header">
+            <h3><i class="fas fa-edit" style="color:var(--accent-gold); margin-right:0.5rem;"></i> Edit Student Record</h3>
+            <button class="modal-close-btn" id="edit-modal-close">&times;</button>
+        </div>
+
+        <div id="edit-status" class="login-status"></div>
+
+        <form id="edit-student-form" class="admin-form">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+                <div class="form-group">
+                    <label for="edit-full-name">Full Name</label>
+                    <input type="text" id="edit-full-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-father-name">Father's Name</label>
+                    <input type="text" id="edit-father-name" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="edit-residence">Place of Residence</label>
+                <input type="text" id="edit-residence" required>
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+                <div class="form-group">
+                    <label for="edit-phone">Phone</label>
+                    <input type="tel" id="edit-phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-course">Enrolled Course</label>
+                    <select id="edit-course" required>
+                        <option value="Boutique Tailoring & Stitching Course">Boutique Tailoring</option>
+                        <option value="Advanced Fashion Designing Course">Advanced Fashion Designing</option>
+                        <option value="Hand Embroidery & Zardozi Course">Hand Embroidery & Zardozi</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="toggle-row">
+                    <span><i class="fas fa-rupee-sign"></i> Fees Paid</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="edit-fees-paid">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="edit-fees-amount">Fees Amount (₹)</label>
+                <input type="number" id="edit-fees-amount" placeholder="e.g. 8500" min="0">
+            </div>
+            <div class="form-group">
+                <label for="edit-notes">Admin Notes</label>
+                <textarea id="edit-notes" placeholder="Any internal notes about this student..."></textarea>
+            </div>
+            <button type="submit" class="btn-primary-admin">
+                <i class="fas fa-save"></i> Save Changes
+            </button>
+        </form>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- DELETE CONFIRM MODAL                                         -->
+<!-- ============================================================ -->
+<div class="admin-modal-overlay" id="delete-modal-overlay">
+    <div class="admin-modal" style="max-width:420px; text-align:center;">
+        <button class="modal-close-btn" id="delete-modal-close" style="position:absolute; top:1.2rem; right:1.2rem;">&times;</button>
+        <i class="fas fa-exclamation-triangle" style="font-size:3rem; color:var(--error); margin-bottom:1rem; display:block;"></i>
+        <h3 style="font-family:var(--font-heading); font-size:1.3rem; margin-bottom:0.5rem;">Delete Student?</h3>
+        <p style="color:var(--text-secondary); font-size:0.9rem; margin-bottom:1.5rem;">
+            You are about to permanently delete the record for <strong id="delete-confirm-name" style="color:var(--text-primary);"></strong>. This action cannot be undone.
+        </p>
+        <div style="display:flex; gap:1rem;">
+            <button class="btn-primary-admin" style="background: rgba(239,68,68,0.2); border: 1px solid var(--error); flex:1;" id="btn-confirm-delete">
+                <i class="fas fa-trash"></i> Yes, Delete
+            </button>
+            <button class="btn-primary-admin" style="background:var(--bg-hover); border:1px solid var(--border); flex:1;" onclick="document.getElementById('delete-modal-overlay').classList.remove('open')">
+                Cancel
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="admin.js"></script>
+
+<script>
+// Sync overview table from students data after load
+// (Runs after admin.js hydrates allStudents)
+document.addEventListener('DOMContentLoaded', () => {
+    const origLoadStudents = window.__origLoad;
+});
+</script>
+</body>
+</html>

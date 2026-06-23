@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Komal Creations & Training Center | Premium Boutique & Tailoring Academy</title>
+    <meta name="description" content="Komal Creations & Training Center offers bespoke high-fashion boutique styling, expert custom tailoring, and professional vocational training courses in fashion design, sewing, and hand embroidery. Verify student credentials online.">
+    <meta name="keywords" content="Komal Creations, Tailoring Center, Fashion Designing Academy, Sewing Classes, Boutique, Bridal Wear, Embroidery Courses, Online Certificate Verification">
+    <meta name="author" content="Komal Creations">
+
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- FontAwesome CDN for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- --- BACKGROUND GLOW DECORATIONS --- -->
+    <div class="glow-shape" style="top: 10%; left: -10%;"></div>
+    <div class="glow-shape" style="top: 40%; right: -10%;"></div>
+    <div class="glow-shape" style="bottom: 10%; left: 20%;"></div>
+
+    <!-- --- NAVIGATION HEADER --- -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo" id="main-logo">
+                <div class="logo-icon">K</div>
+                <span>Komal Creations</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#creations">Creations</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#estimator">Estimator</a></li>
+                <li><a href="#verification">Verification</a></li>
+                <li><a href="#admission-inquiry">Enroll Now</a></li>
+            </ul>
+
+            <div class="nav-controls">
+                <!-- Theme toggle button (Sun/Moon) -->
+                <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle dark/light mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                
+                <!-- Student Portal Button -->
+                <button class="btn btn-secondary" id="btn-student-portal" style="padding: 0.6rem 1.2rem; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 0.4rem;">
+                    <i class="fas fa-user-graduate"></i>
+                    <span id="portal-btn-text">Student Portal</span>
+                </button>
+
+                <a href="#admission-inquiry" class="btn btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Contact Us</a>
+                
+                <!-- Mobile menu burger -->
+                <button class="mobile-menu-toggle" id="mobile-menu-btn" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- --- HERO SECTION --- -->
+    <section class="hero" id="home">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-award"></i>
+                    <span>Elegance in Design, Excellence in Training</span>
+                </div>
+                <h1>Where <span>Creative Creation</span> Meets Professional Learning</h1>
+                <p>Welcome to Komal Creations and Training Center. We specialize in designing bespoke bridal wear, custom-tailored ethnic outfits, and premium designer clothing. Simultaneously, our training division empowers future fashion designers and boutique entrepreneurs with hands-on professional courses.</p>
+                <div class="hero-actions">
+                    <a href="#creations" class="btn btn-primary">Explore Boutique</a>
+                    <a href="#courses" class="btn btn-secondary">Join Training Center</a>
+                </div>
+            </div>
+            
+            <div class="hero-image-wrapper">
+                <div class="hero-main-card">
+                    <!-- High quality image representing fashion designing/boutique -->
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=800" alt="Boutique Designer At Work">
+                </div>
+                
+                <!-- Glassmorphic floating card 1 -->
+                <div class="hero-float-card glass-panel">
+                    <div class="float-icon"><i class="fas fa-scissors"></i></div>
+                    <div>
+                        <h4 style="font-size: 1.1rem; font-weight: 700;">100% Custom Fit</h4>
+                        <p style="font-size: 0.8rem; color: var(--text-secondary);">Individually stitched to perfection</p>
+                    </div>
+                </div>
+
+                <!-- Glassmorphic floating card 2 -->
+                <div class="hero-float-card-2 glass-panel">
+                    <span style="font-size: 1.8rem; font-weight: 800; color: var(--accent-color);">1000+</span>
+                    <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">Certified Students</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- CREATIONS PORTFOLIO --- -->
+    <section class="creations" id="creations">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Designer Creations</h2>
+                <p>Browse through our gallery of bespoke apparel crafted by our expert master tailors and fashion graduates.</p>
+            </div>
+
+            <!-- Filter categories -->
+            <div class="filter-group">
+                <button class="filter-btn active" data-filter="all">Show All</button>
+                <button class="filter-btn" data-filter="ethnic">Bridal & Ethnic</button>
+                <button class="filter-btn" data-filter="western">Modern Western</button>
+                <button class="filter-btn" data-filter="embroidery">Embroidery Work</button>
+            </div>
+
+            <!-- Creations Grid -->
+            <div class="creations-grid">
+                <!-- Card 1 -->
+                <div class="creation-card" data-category="ethnic">
+                    <div class="creation-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&q=80&w=800" alt="Royal Bridal Lehenga">
+                        <span class="creation-tag">Bridal</span>
+                    </div>
+                    <div class="creation-details">
+                        <h3>Royal Zardozi Lehenga</h3>
+                        <p>A crimson silk lehenga intricately stitched with hand-embroidered gold zardozi motifs and stone embellishments.</p>
+                        <div class="creation-meta">
+                            <span>Tailoring Time: 15 Days</span>
+                            <span class="creation-price">₹14,999+</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="creation-card" data-category="western">
+                    <div class="creation-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&q=80&w=800" alt="Evening Silk Gown">
+                        <span class="creation-tag">Western</span>
+                    </div>
+                    <div class="creation-details">
+                        <h3>Emerald Velvet Evening Gown</h3>
+                        <p>Off-shoulder bodycon gown styled in rich emerald velvet with a pleated wrap flare and premium lining finishing.</p>
+                        <div class="creation-meta">
+                            <span>Tailoring Time: 7 Days</span>
+                            <span class="creation-price">₹4,499+</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="creation-card" data-category="embroidery">
+                    <div class="creation-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&q=80&w=800" alt="Designer Aari Anarkali">
+                        <span class="creation-tag">Embroidery</span>
+                    </div>
+                    <div class="creation-details">
+                        <h3>Handcrafted Aari Work Anarkali</h3>
+                        <p>Premium pastel Georgette Anarkali suit showing heavy hand-crafted Aari thread embroidery along necklines and cuffs.</p>
+                        <div class="creation-meta">
+                            <span>Tailoring Time: 10 Days</span>
+                            <span class="creation-price">₹6,499+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- TRAINING CENTER COURSES --- -->
+    <section class="courses" id="courses">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Certification Courses</h2>
+                <p>Unlock professional design skills. We offer courses tailored for absolute beginners and advanced dress designers.</p>
+            </div>
+
+            <!-- Live Search Bar -->
+            <div class="courses-search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="course-search" placeholder="Search courses (e.g., tailoring, embroidery)...">
+            </div>
+
+            <!-- Courses Grid -->
+            <div class="courses-grid">
+                <!-- Course 1 -->
+                <div class="course-card">
+                    <div class="course-icon-box">
+                        <i class="fas fa-scissors"></i>
+                    </div>
+                    <h3>Boutique Tailoring & Stitching</h3>
+                    <p>Learn drafting, cutting, and stitching for essential garments like Salwar Kameez, Kurtis, Blouses, and Plazos. Ideal for beginners starting from scratch.</p>
+                    <div class="course-stats">
+                        <div class="course-stat-item">
+                            <i class="far fa-clock"></i>
+                            <span>Duration: <strong>3 Months</strong></span>
+                        </div>
+                        <div class="course-stat-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Level: <strong>Beginner</strong></span>
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary btn-enroll-course" data-course="Boutique Tailoring & Stitching Course" style="width: 100%;">Enroll Now</button>
+                </div>
+
+                <!-- Course 2 -->
+                <div class="course-card">
+                    <div class="course-icon-box">
+                        <i class="fas fa-pencil-ruler"></i>
+                    </div>
+                    <h3>Advanced Fashion Designing</h3>
+                    <p>Master pattern making, designer sleeves, boutique collars, ethnic jackets, bridal blouses, and high-fashion Western gown drafting.</p>
+                    <div class="course-stats">
+                        <div class="course-stat-item">
+                            <i class="far fa-clock"></i>
+                            <span>Duration: <strong>6 Months</strong></span>
+                        </div>
+                        <div class="course-stat-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Level: <strong>Advanced</strong></span>
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary btn-enroll-course" data-course="Advanced Fashion Designing Course" style="width: 100%;">Enroll Now</button>
+                </div>
+
+                <!-- Course 3 -->
+                <div class="course-card">
+                    <div class="course-icon-box">
+                        <i class="fas fa-fingerprint"></i>
+                    </div>
+                    <h3>Hand Embroidery & Zardozi</h3>
+                    <p>Specialized instruction in Aari work, Zardozi, Bead work, Kasuti, Kantha, and designer patchwork to beautify ethnic garments.</p>
+                    <div class="course-stats">
+                        <div class="course-stat-item">
+                            <i class="far fa-clock"></i>
+                            <span>Duration: <strong>2 Months</strong></span>
+                        </div>
+                        <div class="course-stat-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Level: <strong>All Levels</strong></span>
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary btn-enroll-course" data-course="Hand Embroidery & Zardozi Course" style="width: 100%;">Enroll Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- INTERACTIVE STITCHING COST ESTIMATOR --- -->
+    <section class="estimator" id="estimator">
+        <div class="container">
+            <div class="section-header">
+                <h2>Custom Stitching Price Estimator</h2>
+                <p>Select your apparel types, fabric choices, and design accents to instantly estimate your custom tailoring price.</p>
+            </div>
+
+            <div class="estimator-container">
+                <!-- Configuration panel -->
+                <div class="estimator-form-wrapper glass-panel">
+                    <!-- Step 1: Apparel Type -->
+                    <div class="estimator-group">
+                        <label class="group-title">1. Select Apparel Type</label>
+                        <div class="apparel-grid">
+                            <div class="apparel-card selected" data-apparel="kurti">
+                                <i class="fas fa-tshirt"></i>
+                                <span>Designer Kurti</span>
+                            </div>
+                            <div class="apparel-card" data-apparel="suit">
+                                <i class="fas fa-shirt"></i>
+                                <span>Salwar Suit</span>
+                            </div>
+                            <div class="apparel-card" data-apparel="lehenga">
+                                <i class="fas fa-female"></i>
+                                <span>Bridal Lehenga</span>
+                            </div>
+                            <div class="apparel-card" data-apparel="blouse">
+                                <i class="fas fa-vest"></i>
+                                <span>Saree Blouse</span>
+                            </div>
+                            <div class="apparel-card" data-apparel="gown">
+                                <i class="fas fa-person-dress"></i>
+                                <span>Western Gown</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Fabric Material -->
+                    <div class="estimator-group">
+                        <label class="group-title">2. Select Fabric Material</label>
+                        <div class="chip-grid" data-group="fabric">
+                            <div class="chip-option selected" data-val="cotton">Pure Cotton</div>
+                            <div class="chip-option" data-val="silk">Banarasi Silk (+50%)</div>
+                            <div class="chip-option" data-val="georgette">Georgette (+30%)</div>
+                            <div class="chip-option" data-val="velvet">Luxury Velvet (+80%)</div>
+                            <div class="chip-option" data-val="crepe">Crape Satin (+20%)</div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Sleeve Design -->
+                    <div class="estimator-group">
+                        <label class="group-title">3. Sleeve Styling</label>
+                        <div class="chip-grid" data-group="sleeve">
+                            <div class="chip-option" data-val="sleeveless">Sleeveless (₹0)</div>
+                            <div class="chip-option selected" data-val="half">Half / Normal (₹50)</div>
+                            <div class="chip-option" data-val="full">Full Sleves (₹100)</div>
+                            <div class="chip-option" data-val="designer">Puff / Bell Designer (₹180)</div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Work & Stitching Upgrades -->
+                    <div class="estimator-group">
+                        <label class="group-title">4. Decorative Upgrades</label>
+                        <div class="chip-grid">
+                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;" class="chip-option">
+                                <input type="checkbox" class="extra-check" data-price="450"> Heavy Border Lace (+₹450)
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;" class="chip-option">
+                                <input type="checkbox" class="extra-check" data-price="1200"> Custom Hand Aari Work (+₹1200)
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;" class="chip-option">
+                                <input type="checkbox" class="extra-check" data-price="150"> Dori & Latkan tassels (+₹150)
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;" class="chip-option">
+                                <input type="checkbox" class="extra-check" data-price="250"> Double Cotton Lining (+₹250)
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Step 5: Quantity -->
+                    <div class="estimator-group" style="margin-bottom: 0;">
+                        <label class="group-title">5. Number of Pieces</label>
+                        <div class="slider-container">
+                            <input type="range" id="calc-quantity" min="1" max="10" value="1">
+                            <span class="slider-val"><span id="quantity-val">1</span> Pcs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live calculations output -->
+                <div class="estimator-summary-card glass-panel">
+                    <h3 class="summary-heading">Stitching Summary</h3>
+                    
+                    <div class="summary-list">
+                        <div class="summary-item">
+                            <span>Garment Choice:</span>
+                            <span id="sum-apparel" style="font-weight: 600;">Designer Kurti</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Fabric:</span>
+                            <span id="sum-fabric" style="font-weight: 600;">Cotton</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Sleeves Style:</span>
+                            <span id="sum-sleeve" style="font-weight: 600;">Half / Normal</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Quantity:</span>
+                            <span style="font-weight: 600;"><span id="sum-qty">1</span> Pcs</span>
+                        </div>
+                        <div class="summary-item total">
+                            <span>Estimated Total:</span>
+                            <span class="val" id="sum-total">₹500</span>
+                        </div>
+                    </div>
+
+                    <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.4; margin-top: 0.5rem;">*Note: This is an estimated stitching cost excluding fabric cost. Bring your own fabric or purchase directly from our boutique showroom.</p>
+                    
+                    <button class="btn btn-primary" id="btn-submit-estimate" style="width: 100%; margin-top: 1rem;">
+                        <i class="fas fa-paper-plane"></i> Submit Stitching Inquiry
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- ONLINE LEDGER CERTIFICATE VERIFICATION --- -->
+    <section class="verification" id="verification">
+        <div class="container">
+            <div class="section-header">
+                <h2>Online Certificate Verification Ledger</h2>
+                <p>Public verification verification portal for KCTC alumni. Authenticate academic transcripts and graduation credentials.</p>
+            </div>
+
+            <div class="verify-card glass-panel">
+                <i class="fas fa-shield-halved" style="font-size: 3rem; color: var(--accent-color); margin-bottom: 1rem;"></i>
+                <h3>Enter Student Verification Code</h3>
+                <p style="font-size: 0.95rem; color: var(--text-secondary);">Verification code can be found at the bottom right corner of the physical certificate sheet.</p>
+                
+                <div class="verify-input-group">
+                    <input type="text" id="cert-verify-code" placeholder="e.g. KCTC-VERIFY-99A" autocomplete="off">
+                    <button class="btn btn-primary" id="btn-verify-cert">
+                        <i class="fas fa-certificate"></i> Verify Credentials
+                    </button>
+                </div>
+                <div class="verify-hint">Format example: KCTC-VERIFY-99A (Case Sensitive)</div>
+
+                <!-- Dynamic Certificate Display Area (Shows on successful search) -->
+                <div class="certificate-display" id="certificate-result">
+                    <div class="physical-certificate">
+                        <div class="cert-header">
+                            <h3>KOMAL CREATIONS</h3>
+                            <p>and Training Center Academy</p>
+                        </div>
+                        
+                        <div class="cert-title">This is to certify that student</div>
+                        
+                        <div class="cert-recipient" id="cert-student-name">Aaradhya Sharma</div>
+                        
+                        <div class="cert-body">
+                            daughter of <strong>Mr. <span id="cert-father-name">Rajesh Sharma</span></strong> has successfully completed the curriculum and examinations for the vocational training course in <strong><span id="cert-course-name">Advance Fashion Designing & Tailoring</span></strong> and was awarded this certificate with passing Grade <strong><span id="cert-grade">A+</span></strong>.
+                        </div>
+
+                        <!-- Footer Details -->
+                        <div class="cert-footer-meta">
+                            <div class="cert-meta-item">
+                                <div class="val" id="cert-roll-number">KCTC-2025-089</div>
+                                <div class="lbl">Roll Number</div>
+                            </div>
+                            <div class="cert-meta-item">
+                                <div class="cert-seal">
+                                    <div style="font-size: 0.6rem; font-weight: bold; line-height: 1.1;" id="cert-seal-text">VERIFIED 2025</div>
+                                </div>
+                            </div>
+                            <div class="cert-meta-item">
+                                <div class="val" id="cert-passing-year">2025</div>
+                                <div class="lbl">Graduation Year</div>
+                            </div>
+                        </div>
+
+                        <!-- Bottom verification code -->
+                        <div style="margin-top: 2rem; font-size: 0.75rem; color: #888; font-family: monospace;">
+                            Secured Verification Ledger Id: <span id="cert-verification-code">KCTC-VERIFY-99A</span>
+                        </div>
+                    </div>
+
+                    <!-- Certificate Image Access -->
+                    <div class="cert-btn-actions">
+                        <button class="btn btn-secondary" id="btn-view-cert-img">
+                            <i class="far fa-file-image"></i> View Certificate Scan
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- ADMISSIONS INQUIRY FORM (LEAD CAPTURE) --- -->
+    <section class="inquiry" id="admission-inquiry">
+        <div class="container inquiry-grid">
+            <div class="inquiry-info-column">
+                <h2>Ready to Start Your <span>Creative Career</span>?</h2>
+                <p>Register your interest today. Whether you want to place a custom tailoring order or enroll in one of our professional certification courses, submit the form and our head coordinator will get back to you within 24 hours.</p>
+                
+                <div class="info-details">
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-map-location-dot"></i></div>
+                        <div class="info-text">
+                            <h4>Our Showroom & Academy Address</h4>
+                            <p>E-Block Sector 12, KCTC Plaza, Main Market, Mumbai, India</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-phone-volume"></i></div>
+                        <div class="info-text">
+                            <h4>Call or WhatsApp Us</h4>
+                            <p>+91 98765 43210 (Enquiries) / +91 91234 56789 (Boutique)</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-envelope-open-text"></i></div>
+                        <div class="info-text">
+                            <h4>Official Email</h4>
+                            <p>info@komalcreations.com / admissions@komalcreations.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Inquiry Admissions Form Card -->
+            <div class="inquiry-form-card glass-panel">
+                <h3 style="font-size: 1.8rem; margin-bottom: 1.5rem;">Admissions & Inquiry Form</h3>
+                
+                <!-- Status notifications -->
+                <div class="form-status" id="form-status-msg"></div>
+
+                <form id="admission-inquiry-form" novalidate>
+                    <!-- SPAM HONEYPOT FIELD (Visually Hidden) -->
+                    <div class="honey-field">
+                        <label for="website_address">If you are human, do not fill this field</label>
+                        <input type="text" id="website_address" name="website_address" tabindex="-1" autocomplete="off">
+                    </div>
+
+                    <!-- Row 1: Name and Phone -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="full_name">Full Name *</label>
+                            <input type="text" id="full_name" placeholder="e.g. Priya Sharma" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone_number">Phone / WhatsApp Number *</label>
+                            <input type="tel" id="phone_number" placeholder="e.g. +91 9876543210" required>
+                        </div>
+                    </div>
+
+                    <!-- Row 2: Age and Selected Course -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="age">Age (Optional)</label>
+                            <input type="number" id="age" placeholder="e.g. 21" min="1" max="120">
+                        </div>
+                        <div class="form-group">
+                            <label for="course_interested">Interests / Service *</label>
+                            <select id="course_interested" required>
+                                <option value="" disabled selected>-- Select Interest Option --</option>
+                                <option value="Boutique Tailoring & Stitching (3 Months)">Boutique Tailoring Course (3 Months)</option>
+                                <option value="Advanced Fashion Designing (6 Months)">Advanced Fashion Designing (6 Months)</option>
+                                <option value="Hand Embroidery & Zardozi (2 Months)">Hand Embroidery & Zardozi (2 Months)</option>
+                                <option value="Custom Boutique Design / Stitching Order">Custom Boutique Stitching Order</option>
+                                <option value="General Query">General Inquiry / Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem; padding: 1.1rem;">
+                        <i class="fas fa-paper-plane"></i> Submit Inquiry Details
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- STUDENT & CLIENT TESTIMONIALS --- -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Customers & Alumni Say</h2>
+                <p>Hear from the students who built successful fashion boutique businesses and clients who love our custom fitting.</p>
+            </div>
+
+            <div class="testimonials-slider">
+                <div class="testimonial-track" id="testimonials-track">
+                    <!-- Slide 1 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-quote">Enrolling in the 6-Month Advanced Fashion Designing course at Komal Training Center was the turning point of my life. The master trainers taught me professional pattern cutting. Today, I run my own bridal boutique in Pune!</p>
+                            <div class="testimonial-user">
+                                <h4>Snehal Deshmukh</h4>
+                                <span>Alumna, Batch of 2024</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-quote">I got my bridal lehenga stitched here, and the hand Aari embroidery details were breathtaking. The fitting was custom-crafted and absolutely perfect on the first trial. I highly recommend Komal Creations for premium ethnic stitching.</p>
+                            <div class="testimonial-user">
+                                <h4>Riya Mehra</h4>
+                                <span>Boutique Customer</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-quote">The Online Ledger system is incredibly helpful. When applying for a boutique fashion coordinator role, my employer validated my roll number directly on the website and verified my grades instantly. So professional!</p>
+                            <div class="testimonial-user">
+                                <h4>Divya Nair</h4>
+                                <span>Alumna, Batch of 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carousel Navigation Dots -->
+                <div class="testimonial-dots" id="testimonial-dots"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- FOOTER --- -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo" style="margin-bottom: 1rem;">
+                    <div class="logo-icon">K</div>
+                    <span>Komal Creations</span>
+                </a>
+                <p>Providing premium tailor-stitched styling designs and vocational career academy certifications for women in fashion since 2018.</p>
+                <div class="social-links">
+                    <a href="https://instagram.com" target="_blank" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://whatsapp.com" target="_blank" aria-label="Chat with us on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://facebook.com" target="_blank" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-nav">
+                <h4>Quick Navigation</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#creations">Designer Creations</a></li>
+                    <li><a href="#courses">Certification Courses</a></li>
+                    <li><a href="#estimator">Price Estimator</a></li>
+                    <li><a href="#verification">Verification Ledger</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-nav">
+                <h4>Services & Support</h4>
+                <ul>
+                    <li><a href="#admission-inquiry">Boutique Inquiries</a></li>
+                    <li><a href="#admission-inquiry">Academy Admissions</a></li>
+                    <li><a href="#verification">Online Verification</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Komal Creations & Training Center. All Rights Reserved. Hosted securely on GitHub Pages.</p>
+            <p style="margin-top:0.5rem; font-size:0.8rem;">
+                <a href="admin.html" style="color:var(--text-secondary); opacity:0.5; transition:var(--transition-smooth);" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.5">
+                    <i class="fas fa-lock"></i> Admin Portal
+                </a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- --- SCANNED CERTIFICATE VIEW MODAL OVERLAY --- -->
+    <div class="modal-overlay" id="cert-modal-overlay">
+        <div class="modal-content glass-panel" style="background: white; padding: 1.5rem;">
+            <button class="modal-close" id="modal-close-btn" aria-label="Close modal">&times;</button>
+            <h3 style="font-size: 1.4rem; color: #1a0f15; margin-bottom: 1rem; font-family: var(--font-heading);">Physical Certificate Scan</h3>
+            <div style="width: 100%; height: 350px; overflow: hidden; border-radius: 4px; border: 1px solid #ddd;">
+                <img id="modal-cert-image" src="" alt="Verified Certificate Copy" style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
+            <p style="font-size: 0.8rem; color: #666; margin-top: 0.8rem; text-align: center;">This digital copy matches our internal secure verification ledger transcripts.</p>
+        </div>
+    </div>
+
+    <!-- --- STUDENT AUTHENTICATION MODAL (LOGIN & REGISTER) --- -->
+    <div class="modal-overlay" id="auth-modal-overlay">
+        <div class="modal-content glass-panel" style="max-width: 500px; background: var(--bg-primary);">
+            <button class="modal-close" id="auth-modal-close-btn" aria-label="Close modal">&times;</button>
+            
+            <!-- Tabs header -->
+            <div class="auth-tabs" style="display: flex; border-bottom: 2px solid var(--border-glass); margin-bottom: 1.5rem;">
+                <button class="auth-tab-btn active" id="tab-login-btn" style="flex: 1; padding: 0.8rem; background: none; border: none; font-family: var(--font-heading); font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: var(--transition-smooth);">Log In</button>
+                <button class="auth-tab-btn" id="tab-register-btn" style="flex: 1; padding: 0.8rem; background: none; border: none; font-family: var(--font-heading); font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: var(--transition-smooth);">Register / Enroll</button>
+            </div>
+
+            <!-- Status message inside modal -->
+            <div class="form-status" id="auth-status-msg" style="margin-bottom: 1.2rem;"></div>
+
+            <!-- Login Form -->
+            <form id="student-login-form" style="display: block;">
+                <div class="form-group">
+                    <label for="login-email">Email Address *</label>
+                    <input type="email" id="login-email" placeholder="e.g. yourname@example.com" required autocomplete="email">
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password *</label>
+                    <input type="password" id="login-password" placeholder="••••••••" required autocomplete="current-password">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem; padding: 1rem;">
+                    <i class="fas fa-sign-in-alt"></i> Access Portal
+                </button>
+            </form>
+
+            <!-- Registration/Enrollment Form -->
+            <form id="student-register-form" style="display: none;">
+                <div class="form-group">
+                    <label for="reg-name">Full Name *</label>
+                    <input type="text" id="reg-name" placeholder="e.g. Priya Deshmukh" required autocomplete="name">
+                </div>
+                <div class="form-group">
+                    <label for="reg-father">Father's Name *</label>
+                    <input type="text" id="reg-father" placeholder="e.g. Rajesh Deshmukh" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-residence">Place of Residence (City / State) *</label>
+                    <input type="text" id="reg-residence" placeholder="e.g. Pune, Maharashtra" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-phone">Phone / WhatsApp Number *</label>
+                    <input type="tel" id="reg-phone" placeholder="e.g. +91 9876543210" required autocomplete="tel">
+                </div>
+                <div class="form-group">
+                    <label for="reg-course">Course to Enroll *</label>
+                    <select id="reg-course" required>
+                        <option value="" disabled selected>-- Select Academy Course --</option>
+                        <option value="Boutique Tailoring & Stitching Course">Boutique Tailoring & Stitching (3 Months)</option>
+                        <option value="Advanced Fashion Designing Course">Advanced Fashion Designing (6 Months)</option>
+                        <option value="Hand Embroidery & Zardozi Course">Hand Embroidery & Zardozi (2 Months)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="reg-email">Email Address *</label>
+                    <input type="email" id="reg-email" placeholder="e.g. yourname@example.com" required autocomplete="email">
+                </div>
+                <div class="form-group">
+                    <label for="reg-password">Create Password (min. 6 chars) *</label>
+                    <input type="password" id="reg-password" placeholder="••••••••" required autocomplete="new-password">
+                </div>
+                
+                <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.4; margin-bottom: 1rem;">
+                    * An email verification link will be sent. You must confirm your email before accessing your profile.
+                </p>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem;">
+                    <i class="fas fa-user-plus"></i> Submit Registration
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- --- STUDENT PORTAL DASHBOARD MODAL --- -->
+    <div class="modal-overlay" id="dashboard-modal-overlay">
+        <div class="modal-content glass-panel" style="max-width: 550px; background: var(--bg-primary);">
+            <button class="modal-close" id="dashboard-modal-close-btn" aria-label="Close modal">&times;</button>
+            
+            <div style="text-align: center; margin-bottom: 1.5rem;">
+                <i class="fas fa-user-graduate" style="font-size: 2.5rem; color: var(--accent-color); margin-bottom: 0.5rem;"></i>
+                <h3 style="font-size: 1.6rem; color: var(--text-primary); font-family: var(--font-heading);" id="dash-welcome">Student Portal</h3>
+                <span id="dash-email-badge" class="creation-tag" style="position: static; font-size: 0.75rem; padding: 0.2rem 0.8rem; margin-top: 0.3rem; display: inline-block;">Email Verified</span>
+            </div>
+
+            <!-- Profile details -->
+            <div style="background: var(--bg-secondary); border-radius: var(--radius-md); padding: 1.5rem; border: 1px solid var(--border-glass); margin-bottom: 1.5rem;">
+                <h4 style="margin-bottom: 1rem; border-bottom: 1px solid var(--border-glass); padding-bottom: 0.3rem; font-family: var(--font-heading); color: var(--accent-color);">Personal Credentials</h4>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 0.8rem; font-size: 0.95rem; text-align: left;">
+                    <span style="color: var(--text-secondary); font-weight: 500;">Father's Name:</span>
+                    <strong style="color: var(--text-primary);" id="dash-father-name">-</strong>
+                    
+                    <span style="color: var(--text-secondary); font-weight: 500;">Residence Place:</span>
+                    <strong style="color: var(--text-primary);" id="dash-residence">-</strong>
+                    
+                    <span style="color: var(--text-secondary); font-weight: 500;">Registered Email:</span>
+                    <strong style="color: var(--text-primary);" id="dash-email">-</strong>
+                    
+                    <span style="color: var(--text-secondary); font-weight: 500;">Phone Number:</span>
+                    <strong style="color: var(--text-primary);" id="dash-phone">-</strong>
+                </div>
+            </div>
+
+            <!-- Course detail card -->
+            <div style="background: var(--bg-secondary); border-radius: var(--radius-md); padding: 1.5rem; border: 1px solid var(--border-glass); margin-bottom: 1.5rem;">
+                <h4 style="margin-bottom: 1rem; border-bottom: 1px solid var(--border-glass); padding-bottom: 0.3rem; font-family: var(--font-heading); color: var(--accent-color);">Academy Enrollment</h4>
+                
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--bg-primary); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--accent-color); border: 1px solid var(--border-glass);">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div style="text-align: left;">
+                        <strong style="display: block; font-size: 1.1rem; color: var(--text-primary);" id="dash-course-name">-</strong>
+                        <span style="font-size: 0.85rem; color: var(--text-secondary);">Enrollment Status: <strong style="color: var(--success-color);">Active student</strong></span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 1rem;">
+                <button class="btn btn-secondary" id="btn-logout" style="flex: 1; padding: 0.8rem;">
+                    <i class="fas fa-sign-out-alt"></i> Log Out
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Supabase CDN Script -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- Main JavaScript Config & Code -->
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
